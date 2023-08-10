@@ -10,23 +10,20 @@ const HAbout = () => {
     </div>
     <div className="row content">
       <div className="col-lg-6" data-aos="fade-right">
-        <h2>Eum ipsam laborum deleniti velitena</h2>
-        <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assum perenda sruen jonee trave</h3>
+        <h2>Achiever : Elevating Through Education.</h2>
+        <h3>Nurturing Excellence and Empowering Minds Through Education and Growth.</h3>
       </div>
       <div className="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left">
         <p>
-          Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
+        Discover the essence of Achiever – a place where aspirations are nurtured, skills are honed, and dreams find their path to reality. Our story is one of passion, perseverance, and progress, as we strive to create an educational journey that empowers individuals to achieve greatness
         </p>
         <ul>
-          <li><i className="ri-check-double-line" /> Ullamco laboris nisi ut aliquip ex ea commodo consequa</li>
-          <li><i className="ri-check-double-line" /> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-          <li><i className="ri-check-double-line" /> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</li>
+          <li><i className="ri-check-double-line" /> Achiever integrates academics and personal development seamlessly.</li>
+          <li><i className="ri-check-double-line" /> Industry-experienced educators provide practical knowledge for success.</li>
+          <li><i className="ri-check-double-line" /> Join a dynamic community driving innovation through teamwork.</li>
         </ul>
         <p className="font-italic">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua.
+        Achiever stands as a beacon where knowledge and aspiration converge, fueling the empowerment of your journey toward a successful future.
         </p>
       </div>
     </div>
