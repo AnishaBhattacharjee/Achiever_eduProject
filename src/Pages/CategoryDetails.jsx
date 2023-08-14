@@ -3,7 +3,8 @@ import { ThreeCircles } from 'react-loader-spinner'
 import Search from '../component/Blog/SearchBox'
 import { useDispatch, useSelector } from 'react-redux'
 import { FetchCategoryDetails } from '../redux/CategoryDetailsSlice'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import BlogSkeleton from './BlogSkeleton'
 
 const CategoryDetails = () => {
     const { categoryDetails_data } = useSelector((state) => state?.catdetailsData);
@@ -12,7 +13,7 @@ const CategoryDetails = () => {
 
     useEffect(() => {
         dispatch(FetchCategoryDetails(id))
-    }, [])
+    }, [id])
 
     console.log("cat", categoryDetails_data);
 
@@ -62,10 +63,12 @@ const CategoryDetails = () => {
                                                             </div>
                                                             <div className="entry-content">
                                                                 <p dangerouslySetInnerHTML={{ __html: catData.postText.slice(0,350) }}></p>
+
+                                                                <div className="read-more">
+                                                                    <Link to={`/blogdetails/${catData._id}`}>Read More</Link>
+                                                                </div>
                                                             </div>
-                                                            <div className="entry-footer clearfix">
-                                                                {/* ... */}
-                                                            </div>
+                                                            
                                                         </article>
                                                     </>
                                                 )
@@ -80,21 +83,7 @@ const CategoryDetails = () => {
                                 </>
                             ) : (
                                 <>
-                                    <div style={{ width: "100%", display: "flex", justifyContent: "center", padding: "150px" }}>
-                                        <ThreeCircles
-                                            height="90"
-                                            width="90"
-                                            color="#1bbd36"
-                                            wrapperStyle={{}}
-                                            wrapperClass=""
-                                            visible={true}
-                                            ariaLabel="three-circles-rotating"
-                                            outerCircleColor=""
-                                            innerCircleColor=""
-                                            middleCircleColor=""
-                                        />
-
-                                    </div>
+                                    <BlogSkeleton/>
                                 </>
                             )}
 

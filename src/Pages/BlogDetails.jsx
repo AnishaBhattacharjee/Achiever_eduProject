@@ -6,6 +6,7 @@ import { FetchBlogDetails } from '../redux/BlogDetailsSlice'
 import { ThreeCircles } from 'react-loader-spinner'
 import { HashLoader } from 'react-spinners'
 import Comment from '../component/Blog/Comment'
+import BlogSkeleton from './BlogSkeleton'
 
 const BlogDetails = () => {
   const { id } = useParams()
@@ -14,7 +15,7 @@ const BlogDetails = () => {
 
   useEffect(() => {
     dispatch(FetchBlogDetails(id))
-  }, [])
+  }, [id])
 
   console.log("data", details_data);
 
@@ -106,23 +107,7 @@ const BlogDetails = () => {
                   </>
                 ) : (
                   <>
-                    <div style={{ width: "100%", display: "flex", justifyContent: "center", padding: "150px" }}>
-                      <ThreeCircles
-                        height="90"
-                        width="90"
-                        color="#1bbd36"
-                        wrapperStyle={{}}
-                        wrapperClass=""
-                        visible={true}
-                        ariaLabel="three-circles-rotating"
-                        outerCircleColor=""
-                        innerCircleColor=""
-                        middleCircleColor=""
-                      />
-
-                      {/* <HashLoader color="#1bbd36" size={80} /> */}
-
-                    </div>
+                    <BlogSkeleton/>
                   </>
                 )}
               

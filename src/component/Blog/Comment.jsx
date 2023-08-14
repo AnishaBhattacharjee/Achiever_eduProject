@@ -6,7 +6,7 @@ import { ThreeCircles } from 'react-loader-spinner'
 
 const Comment = () => {
     const { id } = useParams()
-    const initialValues = {
+    const initialValues = { 
         name: '',
         email: '',
         comment: '',
@@ -15,9 +15,14 @@ const Comment = () => {
     const { isLoggedin } = useSelector((state) => state.Auth)
     const { comments, commentStatus, commentSubmitStatus } = useSelector((state) => state?.commentData)
     const navigate = useNavigate()
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const [loadcomment,setLoadcomment]=useState(3)
 
     const [data, setData] = useState(initialValues)
+
+const moreComment=()=>{
+    setLoadcomment(loadcomment+3)
+}
 
     let name, value
     const setCommentData = (e) => {
@@ -47,7 +52,7 @@ const Comment = () => {
 
                             <h4 class="comments-count">Comments ({comments?.length})</h4>
                             {
-                                comments?.map((item, key) => {
+                                comments?.slice(0,loadcomment)?.map((item, key) => {
                                     return (
                                         <>
                                             <div id={`comment-${key + 1}`} class="comment clearfix" key={key + 1}>
@@ -60,6 +65,12 @@ const Comment = () => {
                                     )
                                 })
                             }
+                            <div>
+                            {comments?.length > loadcomment ? (
+                                        <button className='btn btn-md btn-success' style={{marginLeft:"60px"}} onClick={moreComment}>More Comment</button>
+                                    ) : null}
+
+                            </div>
                         </>
                     ) : (
                         <>

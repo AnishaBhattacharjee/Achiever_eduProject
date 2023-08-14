@@ -38,7 +38,7 @@ const Navbar = () => {
 
         {LogoutToggle ? 
       <>
-      <li><Link to='/user'>Hello {name} <FaUserCheck style={{fontSize:'20px', marginLeft:'5px'}}/></Link></li>
+      <li><Link to='/user'><FaUserCheck style={{fontSize:'22px', marginRight:'7px'}}/> Hello {name} </Link></li>
       <li><Link onClick={logOut}>Logout</Link></li>
       </>:
       <>

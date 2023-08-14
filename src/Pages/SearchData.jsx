@@ -2,6 +2,7 @@ import React from 'react'
 import { useSearch } from '../component/Context/Search';
 import { ThreeCircles } from 'react-loader-spinner';
 import SearchBox from '../component/Blog/SearchBox';
+import { Link } from 'react-router-dom';
 
 
 const SearchData = () => {
@@ -52,10 +53,11 @@ const SearchData = () => {
                                                             </div>
                                                             <div className="entry-content">
                                                                 <p dangerouslySetInnerHTML={{ __html: sData.postText.slice(0,350) }}></p>
+                                                                <div className="read-more">
+                                                                    <Link to={`/blogdetails/${sData._id}`}>Read More</Link>
+                                                                </div>
                                                             </div>
-                                                            <div className="entry-footer clearfix">
-                                                                {/* ... */}
-                                                            </div>
+                                                            
                                                         </article>
                                                     </>
                                                 )

@@ -9,14 +9,14 @@ import CourseSkeleton from './CourseSkeleton';
 const Courses = () => {
     const { course_data } = useSelector((state) => state?.courseData);
     const dispatch = useDispatch();
-    const[loadMore,setLoadMore]=useState(4)
+    const [loadMore, setLoadMore] = useState(4)
 
     useEffect(() => {
         dispatch(FetchCourse())
     }, [])
 
-    const moreCourse =()=>{
-        setLoadMore(loadMore+4)
+    const moreCourse = () => {
+        setLoadMore(loadMore + 4)
     }
 
     console.log("course", course_data);
@@ -33,7 +33,7 @@ const Courses = () => {
                         {course_data !== null ? (
                             <>
                                 {
-                                    course_data?.Courses?.slice(0,loadMore).map((cData, index) => {
+                                    course_data?.Courses?.slice(0, loadMore).map((cData, index) => {
                                         return (
                                             <>
                                                 <div className="col-lg-3 col-md-6 mt-4 mt-md-0 pt-4">
@@ -57,31 +57,19 @@ const Courses = () => {
                                         )
                                     })
                                 }
-                                <div style={{ width: "100%", display: "flex", justifyContent: "center", paddingTop:"50px"}}>
+                                <div style={{ width: "100%", display: "flex", justifyContent: "center", paddingTop: "50px" }}>
 
-                                    <button className='btn btn-lg btn-success' onClick={moreCourse}>Load More</button>
+                                    {course_data?.Courses?.length > loadMore ? (
+                                        <button className='btn btn-lg btn-success' onClick={moreCourse}>Load More</button>
+                                    ) : null}
+                                    
                                 </div>
 
                             </>
                         ) : (
                             <>
-                            <CourseSkeleton/>
-                                {/* <div style={{ width: "100%", display: "flex", justifyContent: "center", padding: "150px" }}>
+                                <CourseSkeleton />
 
-                                    <ThreeCircles
-                                        height="90"
-                                        width="90"
-                                        color="#1bbd36"
-                                        wrapperStyle={{}}
-                                        wrapperClass=""
-                                        visible={true}
-                                        ariaLabel="three-circles-rotating"
-                                        outerCircleColor=""
-                                        innerCircleColor=""
-                                        middleCircleColor=""
-                                    />
-
-                                </div> */}
                             </>
                         )}
 
